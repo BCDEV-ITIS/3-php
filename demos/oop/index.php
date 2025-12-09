@@ -14,9 +14,9 @@ try {
     }
 
 } catch(Exception $e) {
-    echo '<br>Erreur fonction add() de DeliverSociety'.$e->getMessage().'<br>';
+    echo '<br>Erreur fonction add() de DeliverySociety'.$e->getMessage().'<br>';
 } finally {
-    echo "S'exécute à la fois peu importe le scénario (try => succès) ou catch(failed)<br>";
+    echo "S'exécute à la fin peu importe le scénario try => pas d'erreur ou catch => exception capturée<br>";
 }
 
 
