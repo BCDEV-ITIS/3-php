@@ -1,8 +1,9 @@
 <?php
 
 require_once (__DIR__.'/Person.php');
+require_once (__DIR__.'/../interfaces/CrudInterface.php');
 
-class DeliveryMan extends Person {
+class DeliveryMan extends Person implements CrudInterface {
  private string $email;
  private int $age;
 
@@ -14,32 +15,45 @@ class DeliveryMan extends Person {
     $this->age = $age;
  }
 
+ public function packages ()  {
+    echo 'TODO';
+ }
+
+     public function add()
+    {
+        throw new \Exception('Not implemented');
+    }
+
+    public function read()
+    {
+        throw new \Exception('Not implemented');
+    }
+
+    public function remove()
+    {
+        throw new \Exception('Not implemented');
+    }
+
+    public function delete()
+    {
+        throw new \Exception('Not implemented');
+    }
+
+ /**
+  * Get the value of email
+  */
  public function getEmail(): string
  {
   return $this->email;
  }
 
- // : self => type de retour, ici la classe elle même
+ /**
+  * Set the value of email
+  */
  public function setEmail(string $email): self
  {
   $this->email = $email;
+
   return $this;
  }
-
- // type de retour un int
- public function getAge(): int
- {
-  return $this->age;
- }
-
- public function setAge(int $age): self
- {
-  $this->age = $age;
-  return $this;
- }
-
- public function packages ()  {
-    echo 'TODO';
- }
-
 }
