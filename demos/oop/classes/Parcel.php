@@ -1,5 +1,6 @@
 <?php
- class Package implements CrudInterface {
+
+ class Parcel implements CRUDInterface {
     private int $number;
     private string $address;
 
