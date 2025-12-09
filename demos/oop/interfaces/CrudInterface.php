@@ -1,8 +1,8 @@
 <?php
 
 interface CRUDInterface {
-    public function add();
-    public function delete();
-    public function remove();
+    public function add($obj);
+    public function delete($obj);
+    public function update($obj);
     public function read();
 }

@@ -4,22 +4,30 @@ class DeliverySociety extends Entity implements CRUDInterface
 {
     private string $email;
     private DateTime $createdAt;
+    private $parcels;
 
-    public function __construct(int $id, string $name, string $address, string $email, DateTime $createdAt)
+    // Dans le constructeur le paramètre parcel est optionnel car il a une valeur par défaut qui est un tableau vide
+    public function __construct(int $id, string $name, string $address, string $email, DateTime $createdAt, $parcels = [])
     {
         // Appel du constructeur du parent donc de la classe Entity avec l'opérateur parent::
         parent::__construct($id, $name, $address);
         $this->email = $email;
         $this->createdAt = $createdAt;
+        $this->parcels = $parcels;
     }
 
-    public function packagesCollection()
+    public function parcelNumbers()
     {
-        echo 'TODO function packagesCollection()';
+        $numbers = [];
+        foreach($this->parcels as $parcel) {
+            $numbers[] = ($parcel->getNumber());
+        }
+        return $numbers;
     }
-    public function add()
+
+    public function add($parcel)
     {
-        throw new \Exception('Not implemented');
+        array_push($this->parcels,$parcel);
     }
 
     public function read()
@@ -27,12 +35,12 @@ class DeliverySociety extends Entity implements CRUDInterface
         throw new \Exception('Not implemented');
     }
 
-    public function remove()
+    public function update($parcel)
     {
         throw new \Exception('Not implemented');
     }
 
-    public function delete()
+    public function delete($parcel)
     {
         throw new \Exception('Not implemented');
     }

@@ -34,7 +34,7 @@
         return $this;
     }
 
-    public function add()
+    public function add($p)
     {
         throw new \Exception('Not implemented');
     }
@@ -44,12 +44,12 @@
         throw new \Exception('Not implemented');
     }
 
-    public function remove()
+    public function update($p)
     {
         throw new \Exception('Not implemented');
     }
 
-    public function delete()
+    public function delete($p)
     {
         throw new \Exception('Not implemented');
     }
