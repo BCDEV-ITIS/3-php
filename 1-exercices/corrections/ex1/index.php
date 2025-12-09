@@ -9,10 +9,10 @@
   <h1>Passez une commande</h1>
   <?php
   // 1. Importation de mes classes
-  require_once '../classes/Article.php';
-  require_once '../classes/Customer.php';
-  require_once '../classes/OrderLine.php';
-  require_once '../classes/Order.php';
+  require_once './classes/Article.php';
+  require_once './classes/Customer.php';
+  require_once './classes/OrderLine.php';
+  require_once './classes/Order.php';
   // 2. Création des articles dans le stock
   $teeShirt = new Article(100, 19.99);
   $teeShirt->setName('T-shirt');
