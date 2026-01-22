@@ -1,36 +1,61 @@
-# Exercice 3 : gestion d'un formulaire d'inscription
+# Exercice 3 : gestion d'un formulaire d'inscription et des erreurs
+
+---
+
+## Modalités
+
+- [x] Utilisez la POO
 
 ---
 
 ## Ressources
 
-- [Pages HTML/CSS/JS/PHP à récupérer ici](./ressources/ex3.zip)
-- [Documentation d'aide à la vérification des données sans les expressions régulières](https://www.php.net/manual/fr/function.filter-var.php)
-- [Apprendre les expressions régulières](https://regexlearn.com/fr/learn/regex101)
-- [Fonction preg_match combinée aux expressions régulières pour vérifier les données](https://www.php.net/manual/fr/function.preg-match)
-- [Fonction is_numeric()](https://www.php.net/manual/fr/function.is-numeric.php)
-
-## Aide sans la validation avec les Regex
-
-- Utilisez pour les vérifications la fonctions [empty()](https://www.php.net/manual/fr/function.empty) ou [isset()](https://www.php.net/manual/fr/function.isset.php) ou [filter_input](https://www.php.net/manual/fr/function.filter-input.php)
-
-## Aide avec validation via les REGEX (en bonus et en option)
-
-Voici des expressions régulières pour les champs du formulaire :
-- email : `"/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i"`
-- Nom et prénom :  `"/^[a-z]+(?!_)(\s|-)?[a-z]+\$/i"`
-- Age `"/^(1[0-2][0-9]|1[4-9]|[2-9][0-9]|130)\$/"`
-- Ville et pays : `"/^[a-z]+(?!_)(\s|-)?[a-z0-9|\s]+\$/i"`
-- Mot de passe : `"/^(?!abcdef|qwerty|azerty|123456)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[&\$+\-*\/#~€%^!-_]).{15,36}\$/"`
+- [Pages HTML/CSS/JS/PHP à récupérer ici](./ressources/ex3-4.zip)
 
 ---
 
 ## Enoncé
 
-1. Récupérez ce [fichier zip](./ressources/ex3.zip)
+1. Récupérez ce [fichier zip](./ressources/ex3-4.zip)
 2. Lisez le `README.md` une fois que vous avez décompressé le fichier.
-3. Récupérez les pays
-4. Récupérez les villes
-3. Récupérez et vérifiez les données soumises par le formulaire d'inscription.
-Dans le cas où tout serait renseigné et au bon format, vous pouvez retourner une réponse au format JSON du type `{"message" => "OK"}`.
-Dans le cas contaire `{"message" => "KO"}`
+
+3. Effectuez le traitement ci-après dans le fichier ***/back/countries.php***.
+Créez un script PHP permettant de récupérer tous les pays contenu dans le fichier ***/back/data/countries_and_cities.json*** et les retournez au format JSON suivant
+
+```json
+{
+  "success": 200,
+  "data": {
+    "countries": [
+      "Afghanistan",
+      "Aland Islands"
+      "Albania",
+      "Algeria"
+      "..."
+    ]
+  }
+}
+```
+
+4. Faites de même pour récupérer toutes les villes à partir d'un pays donnée en entré (paramètre de votre fonction)
+
+```json
+{
+  "success": 200,
+  "data": {
+    "country": "Afghanistan",
+    "cities": [
+      "‘Alāqahdārī Dīshū",
+      "Aībak",
+      "Andkhoy",
+      "Āqchah",
+      "Ārt Khwājah",
+      "..."
+    ]
+  }
+}
+```
+
+## Bonus
+
+5. Gérez les cas d'erreurs en retournant toujours un JSON avec un status HTTP et les message adéquat selon la nature de l'erreur

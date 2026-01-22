@@ -1,18 +1,21 @@
-# Exercice 5 : connexion et gestion des sessions et cookies
+# Exercice 5 : manipulation des fichiers
 
 ## Ressources
 
-- [Fonction *password_verify()* pour vérifier que 2 mots de passe (un haché et l'autre non) sont identiques](https://www.php.net/manual/fr/function.password-verify.php)
+- [Fonction move_upload pour déplacer un fichier *uploadé*](https://www.php.net/manual/fr/function.move-uploaded-file.php)
 
 ---
 
 ## Enoncé
 
-***PS : Ajoutez la méthode `POST` dans la balise form du fichier front/index.php***
-1. Connectez l'utilisateur en vérifiant ses informations (email et mot de passe dans la base de données). Lorsque les informations sont correctes, lancez une session et stockez les informations de votre choix dans les cookies et/ou variables de session.
-2. Depuis la page `back/dashboard.php` affichez les informations stockées dans les cookies et la session de l'utilisateur.
-3. Remodifiez votre code pour rédiriger l'utilisateur suite à sa connexion avec succès vers la page `dashboard.php` en utilisant [header('Location: xxxx');](https://www.php.net/manual/en/function.header.php)
-4. Empêchez un utilisateur qui possède une session d'accéder à nouveau aux pages de connexion et d'inscription.
-5. Créez une nouvelle page `logout.php` dans le dossier `back`.
-6. Déconnectez un utilisateur depuis l'action vers le bouton présent dans le fichier `back/dashboard.php` qui fait une requête vers le fichier `back/logout.php` via la balise `<a href="back/logout">`.
-7. Rédirigez l'utilisateur vers la page de connexion, une fois la session en cours est détruite.
+1. A partir de vos travaux de l'exercice 3, à chaque soumission pour une inscription, créez un nouveau fichier *JSON* contenant les informations envoyées.
+Une soumission = 1 fichier crée lorsque tout est ok.
+Le fichier est au format JSON (extension .JSON avec les données en JSON clé-valeur de l'utilisateur)
+2. Modifiez le formulaire en y ajoutant les lignes de code ci-dessous pour permettre aux utilisateurs d'envoyer une photo et stockez les photos dans le dossier `front/images`.
+
+- Dans la balise ouvrante  `form` du fichier `front/sign_up.php`, ajoutez l'attribut et valeur suivante ***`enctype="multipart/form-data"`***
+- Entre la balise ouvrante et fermante de `form` toujours du fichier `front/sign_up.php`, ajoutez le code HTML suivant : 
+
+```html
+<div class="my-3"><label for="picture" class="form-label">Photo de profil</label><input class="form-control" type="file" id="picture" name="picture"></div>
+```

@@ -3,3 +3,8 @@ cours
 !cours/php.pdf
 daily.md
 quiz
+*/*.dist.php
+**/corrections
+**/ressources/*
+!**/ressources/*.zip
+**/*.dist.php
