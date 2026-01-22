@@ -15,5 +15,21 @@ try {
     echo 'Echec de la connexion : ' . $e->getMessage();
     exit;
 }
+$sql = "INSERT INTO user (firstname, lastname, email, birthday, password)
+VALUES (:firstname, :lastname, :email, :birthday, :password)";
+// Préparation de la requête cela évite d'avoir des injections SQL
+$stmt = $pdo->prepare($sql);
+// Mapping (association) entre les clés et les valeurs attendues
+$stmt->bindParam(':firstname', $firstname);
+$stmt->bindParam(':lastname', $lastname);
+$stmt->bindParam(':email', $email);
+$stmt->bindParam(':password', $password);
+$stmt->bindParam(':birthday', $birthday);
+
+if ($stmt->execute()) {
+    echo 'Insertion réussie !';
+} else {
+    echo "Echec de l'insertion.";
+}
 
 
