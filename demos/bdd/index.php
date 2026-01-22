@@ -41,6 +41,7 @@ if(!empty($_POST)) {
 }
 
 /**
+ * TODO
  * 1. Récuperer et afficher les infos des utilisateurs ici
  * 2. Sécuriser le mot de passe en le hashant avec la fonction password_hash()
 */
