@@ -1,3 +1,2 @@
 <?php
-echo "OK";
-var_dump($_REQUEST, $_POST);
+var_dump($_POST);
