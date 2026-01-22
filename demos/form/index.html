@@ -7,10 +7,12 @@
 </head>
 <body>
     <form action="http://localhost:8080" method="post">
-        <input type="text" placeholder="Nom">
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="password">
-        <input type="number" placeholder="Age">
+        <label for="firstname">Nom:</label>
+        <input type="text" name="firstname" id="firstname" placeholder="Nom" minlength="2" maxlength="50">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="Email" pattern="^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$">
+        <input type="password" name="password" placeholder="password">
+        <input type="number" name="age" placeholder="Age">
         <input type="submit" value="Envoyer">
     </form>
 </body>
